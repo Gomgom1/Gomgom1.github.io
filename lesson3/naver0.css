@@ -1,0 +1,54 @@
+body{margin:0}
+
+.top{
+    
+}
+.top .quickmenu{
+    margin: 10px 0 30px 0;
+    font-size: 11px;
+    color: #999;
+    text-align: right;
+}
+.top .search{
+    margin-bottom: 30px;
+}
+.top .searchbox{
+    display: inline-block;
+    height: 35px; width: 500px; box-sizing: border-box;
+    border: 3px solid #6b6;
+    position: relative;
+    top: -7px;
+    line-height: 34px;
+    font-size: 24px;
+    color: #999;
+    font-family: sans-serif;
+    padding: 0 0 0 10px
+}
+.top .searchbutton{
+    display: inline-block;
+    height: 30px; width: 25px;
+    position: relative;
+    top: -4px;
+}
+.top h1{
+    display: inline;
+}
+.top h1 img{
+    width: 150px;
+}
+.menu{
+   
+    border-top: 1px solid #aaa;
+    border-bottom: 1px solid #aaa;
+}
+.contents{
+   
+    background: #ddd;
+}
+
+.centerbox{
+    width: 965px;
+    background: #fff;
+    margin: 0 auto 0 auto; /*블럭요소는 가운데 정렬하기 위해서 마진 오토를 준다. 인라인 요소는 부모한테 텍스트 얼라인 센터를 주면 되는데 블럭은 블럭이니까 영향을 안받음. 그러니까 마진 오토로 준다 */
+
+}
