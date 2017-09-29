@@ -1,0 +1,101 @@
+<html>
+    <head>
+    </head>
+    <body>
+
+
+
+        <script>
+        //제어문
+        //if문 if ~공백포함가능~ (식) ~공백포함가능~ 문
+        var a = 3;
+        if(a>1) console.log('greater than 1');console.log('greater that 2.5');
+        //단문으로 붙이면 뒤에 있는 애는 앞에있는 애랑 전혀 상관없는 애임
+        //같이 묶어주고 싶으면 중문으로 써야한다
+        //뒤에 애는 이프랑 상관없이 무조건 실행되는 애
+        if      (      a     > 2)        console.log('greater than 2');
+        //공백 자유롭게 포함 가능
+        if(a>2.5) {console.log('greater that 2.5');
+        console.log('greater that 2.5'); console.log('greater that 2.5');
+        } //중문을 쓰려고 중괄호 필요
+
+
+        //if else 문 if(식)문 else 문
+        if(a>4) console.log('greater than 4'); else console.log('less than 4');
+        //우리가 세미콜론을 치지 않아도 엔터를 치면 종결된걸로 본다.
+        if(a>1)
+        console.log('greater than 1');
+        //이렇게하면 이프문이 안됨. 이렇게 하고싶으면 중괄호 치기{} 근데
+        if(a>1
+        ) console.log('greater than 1');
+        //이건 됨(/???????!) 저거 괄호 안에 공백을 포함할 수 있기 때문.
+        if(a>1) 
+        {
+            console.log('greater than 1');
+        }
+        //근데 이렇게..ㅈ.ㅜㅇ문이라도 이런식으로 괄호 빠이빠이하면 이프문이랑 분리된다
+        //if(a>4) 
+        //console.log('greater than 4'); else console.log('less than 4');
+        //이렇게 하면 에러남(이프랑 엘스랑 못만나서)
+        if(a>4) console.log('greater than 4'); 
+        else console.log('less than 4');
+        //근데 이건 됨(;)
+        if(a>4) console.log('greater than 4'); 
+        else 
+        console.log('less than 4');
+        //이러면 else는 뒤에 공문처리돼서 안됨;
+
+        if(a>3){
+            console.log('greater than 3');
+        }else{
+            console.log('less than 3');
+        }
+
+        if(a>1) console.log('over 1');
+        else if(a>2) console.log('over 2');
+        else if(a>3) console.log('over 3');
+        //얘는 
+        //if(a>1) console.log('over 1');
+        //else {
+        //    if(a>2) console.log('over 2');
+        //    else {
+        //        if(a>3) console.log('over 3');
+        //    }
+        //}
+        //이거나 마찬가지임 else 뒤에 제어문이 온 것. else if문이 따로 있는 것은 아니다.
+        //언어에 따라서 else if문이 따로있는 경우와 아닌 경우가 있는데 자바스크립트는 아닌 경우임
+
+
+
+
+        //while문 while(식)문
+        var i = 20;
+        while(i--) console.log(i);
+        //i의 값을 먼저 준다음 뺀당 자바스크립트는 0이 아닌 수를 참으로 본다 log에 찍히는 값은 처음에는 19임
+        console.log(i);
+        //이러면 마지막 i값은 -1로 출력될 것. i가 0일때 while은 멈추는데 i--라서 -1이 될거니까. 
+        //자바스크립트에서 false, 0, '', "", null, undefined, NaN -> falsy값. 이게 아닌 애들은 전부 truethy다.
+        if('') console.log('true'); else console.log('false');
+
+        var str = "abcd";
+        while(str){
+            str = str.substring(0, str.length - 2);
+        }
+        //오....................................그렇다고함
+
+
+        //for문 for(식1; 식2; 식3) 문
+        //식1 일반적인 식이지만 선언문이 올 수 있다.
+        //식2 truthy판정
+        //식3 for의 문이 실행된 후 수행되는 식
+
+        var i;
+        for(i = 0; i<10; i++){
+            console.log(i);
+        }
+        for(var j = 0; j<10; j++){
+            console.log(j);
+        }
+        </script>
+    </body>
+</html>
