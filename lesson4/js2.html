@@ -96,6 +96,57 @@
         for(var j = 0; j<10; j++){
             console.log(j);
         }
+        if(a>2) for(var j = 0; j<10; j++) console.log(j);
+
+
+        var k1 = undefined; //이건 값을 안넣엇다는거고
+        var k2 = null; //이건 null값을 넣은 것임
+        var k3;
+        var k4 = 5;
+
+        k4 = undefined;
+
+        var f2 = function(a){
+            if(a === undefined){//인자를 줬는지 안줬는지 알아보고싶은거
+                a = 'hello';
+            }
+            console.log(a);
+        }
+
+        f2('greeting');
+        f2();
+
+        var a3 = "abc", a4 = 123, a5 = true;
+        console.log(typeof a3, a4, a5);
+
+
+
+
+        var o1 = new Object();
+        o1.name = 'hika';
+        o1.role = 'tutor';
+        console.log(o1);
+        var o2 = {name: 'h', role: 'student'};
+        console.log(o2);
+
+        var arr1 = new Array();
+        arr[0] = 3;
+        arr[1] = 5;
+        console.log(arr1);
+        var arr2 = [10, 20];
+        console.log(arr2);
+
+        //함수 리터럴       function 함수이름선택 (인자, 인자...){문}
+        var f1 = function double(v){return v*2;};
+        console.log(f1(5));
+        var double = f1;
+        console.log(double(5));
+        //이게 값이라서 다른데다가 할당할 수 잇음
+        var f3 = function(f, v){
+            return f(v);
+        };
+        console.log(f3(double,5));
+        //함수를 인자로 전달할수잇음
         </script>
     </body>
 </html>
