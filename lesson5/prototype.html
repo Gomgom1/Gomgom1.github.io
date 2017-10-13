@@ -1,0 +1,106 @@
+<html>
+    <head></head>
+    <body>
+<script>
+//프로토타입 prototype
+//클래스
+/*class Student{
+
+
+
+};
+*/
+//이게 이제는 되지만 우리 책에서는 아직 그 버전이 아님
+//생성자 - 그냥 함수다
+var Student = function(name, grade){
+
+    if(this instanceof Student){
+this.name = name;
+this.grade = grade;
+
+/*
+this.display = function(){
+    console.log(this.name + "::" + this.grade);
+};
+
+*/
+    } else{
+        return new Student(name, grade);
+    }
+    //이렇게 if랑 else를 두면 바깥에서 new 안해도 else에서 만들어줌
+};
+var student2 = new Student("abc", 3);
+
+
+Student.prototype.display = function(){
+    console.log(this.name + "::" + this.grade);
+}
+console.log(student2.display());
+
+
+
+
+//외워! 
+/*
+class Student{
+    String name;
+    int grade;
+    public Student(name, grade){
+        this.name = name;
+        this.grade = grade;
+    }
+    public void display(){
+        System.out.println(this.name + "::" + this.grade);
+    }
+}
+*/
+//위는 일반적인 자바 클래스.
+//자바스크립트는 생성자랑 클래스 선언을 합친다. 클래스 선언되자마자 생성자도 만들어지는 셈.
+//내가 이런 클래스를 원한다며 저렇게 만들어야한다. 번역을 기계적으로 하자. 번역을 기계적으로 한다.
+//저거 if랑 else 하지 않아도 됨. 그것까지 요구하지 않을테니까 기계적으로 번역을 하자.
+
+
+class Extended extends Base{}
+
+var Base = function(){}
+var Extended = function(){}
+Extended.prototype = new Base(); //<-이거쓰면돼! 
+//외어ㅜ! 자바스크립트의 상속 방법임.
+//만약 class 안에 static void가 있다면 student.action()이러면 된다면
+//자바 스크립트에서는 Student.action = function(){};이거면 됨
+//프로토타입은 기계적으로 외우자. 번역! 
+
+
+
+var f = function(){}
+f.prototype
+
+
+var st1 = Student("hika", 1);
+console.log(st1.name, st1.grade);
+/*
+Student("hika", 1); //함수로 호출해버렸음.......................
+//this를 썼는데 new로 데리고온 게 아니라 그냥 때려버리면 아래처럼더ㅣㅁ.....
+console.log(name, grade); //이건.....전역변수에 있는 키 이름이 되어버렸다
+//단지 new를 붙여서 사용하면 생성자로 작동하고 그냥 호출하면 함수로 작동할 뿐.
+
+*/
+var student = new Student("sitsit", 2);
+//console.log(name, grade); 이러면 죽어버림
+console.log(student.name, student.grade); //이러면 안죽음
+console.log(student instanceof Student); //이 클래스의 인스턴스인지 검사
+
+/*
+var a = new Array();
+var b = Array();
+var a = new Date();
+var d = Date();
+var f = new Object();
+var h = Object();
+//내장객체는 다 이렇게 해뒀음 어떻게 돼도 이렇게 쓸 수 있게 하려고
+
+//생성자의 이슈가 이런 게 있었다..................
+*/
+</script>
+    </body>
+</html>

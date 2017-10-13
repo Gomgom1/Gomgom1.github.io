@@ -1,0 +1,90 @@
+<html>
+<head></head>
+<body>
+    <p id = "test">data</p>
+    <div>
+        <div>inner</div>
+    </div>
+<script>
+//DOM Document Object Model
+//이 한 장의 html을 document라고 부름
+//object로 모델링을 한다는거
+//건담 프라모델: 얘는 건담의 모형이지 건담이 아님. 재질도 다르고 일부 특성을 땄다
+//내가 재현하고 싶은 형태까지만 재현하는 것이 모델링
+//html에 등장하는 모든 태그 요소들을 죄다 오브젝트로 바꾼다.
+/*
+var html = new HTML();
+var head = new HEAD();
+var body = new BODY();
+html.appendChild(head);
+html.appendChild(body);
+
+var p = new P();
+var div = new DIV();
+var div2 = new DIV("inner");
+div.appendChild(div2);
+body.appendChild(p);
+body.appendChild(div);
+
+body = html.getItem(1);
+div = body.getItem(1);
+innerDiv = div.getItem(0);
+innerDiv.html == 'inner';
+*/
+//우리가 직접 html을 객체로 모델링했다면 이런ㅇ식이었을 것.
+
+
+var body = document.body;
+console.log(body.children[1].children[0].innerHTML);
+//계층구조로 파악할 수 있다
+console.log(document.getElementsByTagName("div")); //이러면 좀 더 편하게 찾을 수 있음. div div 둘 다 찾아주니까 최소 하나 이상이 생길수잇기때문에 elements이다
+console.log(document.getElementById("test").innerHTML = "안녕하세요"); //얘는 아이디 특성상 하나밖에 없으니까 elements가 아니라 단수형임
+
+var panel = document.getElementById("test");
+var log = function(data){
+    panel.innerHTML = data;
+};
+log("hello DOM"); //얘가 돔을 조작하는 함수를 가지고잇어서 우리가 조작할수잇다
+
+var brightness = function(color){
+    panel.style.backgroundColor = "rgb(" + color + "," + color + "," + color + ")";
+};
+
+panel.addEventListener("click", function(event){
+
+var msg = "hello";
+alert(msg);
+
+}); //첫번째 인수는 이벤트명, 두번째 인수는 함수
+//ineraction을 하려면 이렇게 하면 된다
+panel.addEventListener("mouseover", function(event){
+
+brightness(200);
+
+});
+var f = function(){
+panel.addEventListener("mouseout", function(event){
+
+    brightness(255);
+
+});
+};
+f();
+
+var count = 0;
+setInterval(function(){ //이 함수는 자바스크립트에 내장된 함수임. 인자를 두 개받는데,첫번째는 함수를 받고, 두번째는 시간을 받는다. 뒤에 숫자 있는거 이 밀리세컨드마다 이거 호출함.
+    if(count < 255){
+        count++;
+    }else count = 0;
+    log(count);
+    brightness(count);
+}, 100)
+
+//전용함수랑...................... 일회성 함수
+
+//BOM browser object model
+
+
+</script>
+</body>
+</html>

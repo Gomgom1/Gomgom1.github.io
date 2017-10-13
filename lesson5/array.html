@@ -1,0 +1,164 @@
+<html>
+    <head></head>
+    <body>
+<script>
+    
+var arr = [];
+console.log(arr.length);
+
+//이거 배열같음 인덱스도 지정하고
+arr[100] = 10;
+console.log(arr.length);
+arr.abc = "abc";
+console.log(arr.abc);
+
+//오브젝트에서 속성지정하는 것과 동일하게 작동한다
+//오브젝트인데 length관리 기능만 있어서 성긴배열이 가능함
+arr["100"] = "20";
+console.log(arr[100]);
+
+//배열관련 메소드
+var arr2 = [100, 50, 1, 4, 5];
+arr2.sort();
+console.log(arr2); //소트 때려도 이 array가 바뀌지 않음. 자바스크립트는 sort를 때리면 새 배열을 반환한다
+//...가 원래 그랬으나 최신에서는 바뀌어서 소트해줌. 문자열로 보고서 소트해줬다
+var compareTo = function(a, b){
+    if(a>b) return 1;
+    else if(a==b) return 0;
+    else return -1;
+
+
+};
+arr2.sort(compareTo);
+console.log(arr2); //이러면 제대로 정렬이 된다 오 신기해
+//왜지? sort 메소드 짜보기
+/*
+var sort = function(f){
+
+    for(var i = 0; i<arr2.length; i++){
+        var a = arr2[i];
+        for(var j = 0; j<arr2.length; j++){
+            if(i == j) continue;
+            var b = arr2[j];
+            if(f(a, b) == 1){
+
+            }else if(f(a, b) == 0){
+
+            }else{
+
+
+            }
+            
+        }
+    }
+
+
+};
+*/
+//자바스크립트의 소트 메소드는 이런 걸 요구하기 때문에 함수에 넣으면 쓸 수 있음
+//허어......................................................................
+//배열에는 소트가 있는데 소트 괄호 안에 암것도 안넣어도 되지만 넣는다면 함수가 두 개의 인자를 받고서 0 1 -1을 리턴해줘야함
+
+//stack
+arr2.push(1,2,3,4,5,6); //얘네는 100 뒤에 추가된다
+console.log(arr2);
+arr2.pop(); //얘는 인자가 없음. 한번에 하나밖에 못뺀다
+arr2.pop();
+arr2.pop();
+arr2.pop();
+
+console.log(arr2);
+
+//queue
+arr2.shift(); //제일 앞에있는 애가 빠져나감
+console.log(arr2);
+
+var sum = 0;
+for(var i = 0; i< arr2.length; i++){
+    sum += arr2[i];
+}
+console.log(sum);
+//사람이 일일이 치게 만드니까 실수가 벌어질 수 있음
+
+sum = 0;
+arr2.forEach(function(v, index){
+
+console.log(v, index);
+sum += v;
+
+});//이 메소드에는 인자의 첫번째가 각 원...원소?를 보내는 함수/를 넣어야함
+//함수를 값으로 봐야해 변수에 할당할 수 있어! 외워외워
+//함수는 값이다 funcion으로 만들어진 결과는 함수객체? 함수는 객체다 함수는 참조객체 객체 인자로 보낼 수 있다 기억해
+//일급객체는 변수에 할당할 수 있고 인자에 넣을 수 있고 리턴할 때 리턴값으로 줄 수 있음 <-함수도 다 가능해
+
+console.log("arr: forEach", sum);
+
+
+
+
+/*
+var forEach = function(f){
+    for(var i = 0; i<arr2.length; i++){
+        f(arr2[i], i);
+    }
+}
+
+sum = 0;
+forEach(function(v, index){
+
+console.log(v, index);
+sum += v;
+
+});
+
+console.log("forEach Function", sum);
+*/
+//이래도 값 똑같음! 
+
+//자바스크립트의 스코프는 함수만 만들어낼 수 있다.
+//스코프가 뭐지?: scope - 식별자의 이름을 인식할 수 있는 범위
+//스코프에서 첫번째로 인식할 수 있는 식별자는 인자와 지역변수
+//이거 말고 다른 식별자를 인식할 수 있느냐/ 바깥 쪽 함수(함수 바깥에 함수가 있을 수 있음, 마지막에는 함수로 감싸지지 않은 코드가 있을 수도 있고)
+//(그런데 그것도 전역함수 안에 있어서 함수 소속임. 함수 소속이 아닌 변수는 하나도 없음. 가장 바깥에 있어도 전역함수 소속이다.)
+var f = function(v, index){
+    sum += v;
+};
+//이걸 보자. v랑 index는 알수있음. sum은 어디서 찾아야할까? 얘를 못찾으면 그걸 감싸는 마지막 보스인 전역함수에 있는 지역변수와 인자를 찾는 것임.
+//그래서 얘가 sum을 찾아온거다.
+
+var ga = 100, gb = 200;
+var outer = function(oa, ob){
+    var o1a = oa * 2, o1b = ob * 2;
+    var inner = function(ia, ib){
+        var i1a = ia * 2, i1b = ib * 2;
+        console.log(
+'oa', oa, 'ob', ob,
+'o1a', o1a, 'o1b', o1b,
+'ia', ia, 'ib', ib,
+'i1a', i1a, 'i1b', i1b,
+'ga', ga, 'gb', gb
+        );
+    };
+    var inner2 = function(i2, i3){};
+    inner(o1a, o1b);
+};
+
+outer(1, 2);
+//감싼쪽 위로 올라가서 찾는다 그래서 i2는 못찾음
+
+var check = 100; //얘만 있으면 100. 아님 undefined
+var outer2 = function(){
+    //var check = 50; 아래거 없고 이거 있으면 50
+    var inner = function(){
+        //var check = 10; 이거 있으면 10
+        console.log(check);
+    }
+    inner();
+};
+outer2();
+//안쪽의 스코프가 바깥쪽의 스코프랑 동일한 이름?을 사용했을 경우 쉐도잉이라고 함. 가려서 안보이게 한 것.
+//가장 가까운 애를 찾아냈으면 더이상 탐색할 필요가 없음. 출력값은 10이다.
+
+</script>
+    </body>
+</html>
