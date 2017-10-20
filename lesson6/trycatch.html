@@ -1,0 +1,72 @@
+<html>
+<head></head>
+<body>
+    <div id = "log"></div>
+<ul><li>item1</li>
+    <li>item2</li
+    ><li>item3</li
+    ><li>item4</li
+    ><li>item5</li
+    ></ul>
+<input type = "text" id = "data"/>
+<div id = "msg"></div>
+<!--<img scr = "aa.png" id = "img1" a = "3"/>-->
+
+<script>
+var panel = document.getElementById("log");
+var log = function(v){
+    panel.innerHTML = panel.innerHTML + "<br>" + v;
+}
+var ul = document.getElementsByTagName("ul")[0];
+log("children vs childNodes : " + ul.children.length + "," + ul.childNodes.length)
+
+
+class Element extends Node {}
+
+
+
+
+
+
+
+/*
+
+
+
+
+var img = document.getElementById("img1");
+console.log(img.src, img.id, img.a);
+
+
+var target = document.getElementById("data");
+var msg = document.getElementById("msg");
+var solution = 53;
+var test = function(){
+    var result = "ok";
+    try{
+        var x = target.value;
+        if(x == "") throw "빈값";
+        else if(isNaN(x)) throw "숫자가 아님";
+        //위의 배타적인 관계라면, 여집합이라면 else if라고 써주는 게 좋다
+        //큰 집합을 대상으로 똑같은 집합 a에다가 이것저것 테스트라면 else 안붙이는 게 맞음
+        //그런데 검사할 때마다 ㅇㅇ가 아닌 애들한테 검사하고 검사하고 이렇게 범위를 줄어간다면
+        //else 쓰는 게 맞음
+        else x = Number(x);
+        if(x > solution) throw "크다";
+        else if(x<solution) throw "작다";
+      
+    }catch(e){
+        result = e;
+        //e에는 throw 다음에 있는 식이 나온다. 그게 우리가 catch에서 받게되는 값.
+       
+    }
+    msg.innerHTML = result;
+};
+target.onkeyup = test;
+
+*/
+
+</script>
+
+</body>
+</html>
