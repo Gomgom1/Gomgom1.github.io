@@ -1,0 +1,95 @@
+<html>
+    <head>
+       
+    </head>
+    <body>
+        <section class = "testover">
+            <h2></h2>
+            <div></div>
+        </section>
+
+
+
+        <script
+        src = "http://code.jquery.com/jquery-3.2.1.min.js"
+        integrity = "sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+        <script>
+            var model = {
+                title:{
+                    over: "test overed",
+                    out: "test"
+                },
+                count:0
+
+            };
+
+            /*
+            $(".testover").bind("mouseover",function(e){
+
+                e.stopImmediatePropagation();
+                var children = $(e.currentTarget).children();
+                //console.log(children);
+                $(children[0]).html(model.title.over);
+                $(children[1]).html(model.count++);
+
+            }).mouseout(function(e){
+
+                e.stopImmediatePropagation();
+                var children = $(e.currentTarget).children();
+                //console.log(children);
+                $(children[0]).html(model.title.out);
+           
+            });
+            */
+            $(".testover")[0].addEventListener("mouseover", function(e){
+
+                e.stopImmediatePropagation();
+                var children = $(e.currentTarget).children();
+                //console.log(children);
+                $(children[0]).html(model.title.over);
+                $(children[1]).html(model.count++);
+            
+            }, true);
+            $(".testover")[0].addEventListener("mouseout", function(e){
+
+                e.stopImmediatePropagation();
+                var children = $(e.currentTarget).children();
+                //console.log(children);
+                $(children[0]).html(model.title.out);
+           
+            }, true);
+
+            /*
+            var mouseout;
+
+            $(".testover").mouseout(mouseout = function(e){
+                console.log(e); //디버깅을 위함
+                var children = $(e.currentTarget).children(); 
+                
+                $(children[0]).html(model.title.out);
+
+            });
+
+            /*
+            var mouseout = function(e){
+                var children = $(e.target).children;
+                $(children[0]).html(model.title.out);
+
+            }
+            $(".testover").mouseout(mouseout);
+
+            이 식이 위의 식과 동일한 문장
+            */
+
+          
+
+            var init = function(){
+                $($(".testover").children()[0]).html(model.title.out);
+            };
+            init();
+
+            //mouseout({currentTarget:$(".testover")[0]});
+        </script>
+    </body>
+</html>

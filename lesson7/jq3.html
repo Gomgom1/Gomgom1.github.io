@@ -1,0 +1,37 @@
+<html>
+    <head>
+       
+    </head>
+    <body>
+        <button id = "btn">show it</button>
+        <button id = "btn2">change it</button>
+        <img id = "dog" style = "display:none; position: absolute;" 
+        src = "https://www.cesarsway.com/sites/newcesarsway/files/styles/large_article_preview/public/Natural-Dog-Law-2-To-dogs%2C-energy-is-everything.jpg?itok=Z-ujUOUr">
+
+
+
+
+
+        <script
+        src = "http://code.jquery.com/jquery-3.2.1.min.js"
+        integrity = "sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+        <script>
+           $("#btn").click(function(){
+               $("#dog")
+               .show(1500)
+               .animate({left: '400px'})
+               .animate({'border-radius':'80%'}, 2000)
+               .animate({'border-radius':'0'}, 2000)
+               .animate({left:'80px'})
+               .hide(1000);
+               //시퀀스. 순차적으로 적용됨 
+
+           });
+           $("#btn2").click(function(e){
+               $("#dog").attr("src", "data: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZJh7FoX5w3sqyY0xDlRKVaPTw_dBSIqnCGWA4JbVPlkAlRzoJ0g");
+           });
+
+        </script>
+    </body>
+</html>
