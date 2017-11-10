@@ -1,0 +1,45 @@
+<html>
+    <head>
+       
+    </head>
+    <body>
+        
+
+
+
+        <script
+        src = "http://code.jquery.com/jquery-3.2.1.min.js"
+        integrity = "sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+        <script>
+         
+         var input = document.createElement("input");
+         input.name = "test";
+         input.type = "text";
+         input.value = "test";
+         document.body.appendChild(input);
+        
+        //<input type = "text" name = "test" value = "test"/>
+        var a = $('<input type = "text" name = "test2" value = "test2"/>');
+        document.body.appendChild(a[0]);
+
+        var obj = {
+            "a" : 27,
+            "b" : "abc"
+        };
+        //자바스크립트는 이렇게 할 수 있지만
+        //제이슨은 {"키": 문자열, 값..........................중간에 못봣는데 함수는못들어옴}
+
+        var json = '{"a":3, b:5}';
+        try{
+        console.log(JSON.parse('{"a":3, "b":5}').b); //5 리턴
+        console.log(JSON.stringify(obj)); //문자열이 리턴 {"a":27,"b":"abc"} 이렇게
+        }catch(e){
+            console.long(e);
+        } //잘못하면 죽어버릴 수 있기 때문에 트라이캐치를 걸어주는 편이 좋다
+
+        
+
+        </script>
+    </body>
+</html>
