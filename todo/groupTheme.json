@@ -2,32 +2,38 @@
     "theme": [
         {
             "tid":1, 
-            "theme": "mountain"
+            "theme": "mountain",
+            "selected": "True"
 
         },
         {
             "tid":2, 
-            "theme": "campingcar"
+            "theme": "campingcar",
+            "selected": "False"
 
         },
         {
             "tid":3, 
-            "theme": "home"
+            "theme": "home",
+            "selected": "False"
 
         },
         {
             "tid":4, 
-            "theme": "airplane"
+            "theme": "airplane",
+            "selected": "False"
 
         },
         {
             "tid":5, 
-            "theme": "city"
+            "theme": "city",
+            "selected": "False"
 
         },
         {
             "tid":6, 
-            "theme": "none"
+            "theme": "none",
+            "selected": "False"
 
         }
     ],
@@ -35,27 +41,32 @@
     "color": [
         {
             "id":1, 
-            "theme": "blue"
+            "theme": "blue",
+            "selected": "True"
 
         },
         {
             "id":2, 
-            "theme": "orange"
+            "theme": "orange",
+            "selected": "False"
 
         },
         {
             "tid":3, 
-            "theme": "violet"
+            "theme": "violet",
+            "selected": "False"
 
         },
         {
             "tid":4, 
-            "theme": "green"
+            "theme": "green",
+            "selected": "False"
 
         },
         {
             "tid":5, 
-            "theme": "skyblue"
+            "theme": "skyblue",
+            "selected": "False"
 
         }
     ]
