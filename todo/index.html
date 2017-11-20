@@ -1,39 +1,47 @@
 <html>
-        <head>
+<head>
            
-        </head>
-        <body>
+</head>
+<body>
 
-            <style>
-                ul{list-style:none}
-
-                </style>
+<style>
+    ul{list-style:none}
+</style>
             
-    <ul id = "list">
+<ul id = "list">
 
-    </ul>
+</ul>
     
     
-            <script
-            src = "http://code.jquery.com/jquery-3.2.1.min.js"
-            integrity = "sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-            crossorigin="anonymous"></script>
-            <script>
-             
-             $.get("https://Gomgom1.github.io/todo/groupList.json",function(result, status){
-    
-                  console.log(result.data[0]);
+        <script
+        src = "http://code.jquery.com/jquery-3.2.1.min.js"
+        integrity = "sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+        <script>
+        
+        $.get("https://Gomgom1.github.io/todo/groupList.json",function(result, status){
 
-                  var arr = result.data;
-                  var list = "";
+            console.log(result.data[0]);
 
-                  for(var i = 0; i<arr.length; i++){
+            var arr = result.data;
+            var list = "";
 
-                    list += "<li>"+ '<span style="color:"' + arr[i].color + ">&#9776;</span>" + arr[i].name + "</li>"
+            for(var i = 0; i<arr.length; i++){
 
-                  }
-                  $('#list').html(list);
-              });
-            </script>
-        </body>
-    </html>
+                if (arr[i].icon=="home"){
+                list += "<li>"+ '<span style="color:' + arr[i].color + '">;</span>' + arr[i].name + " " + arr[i].count + "</li>"
+            }else if(arr[i].icon=="sun"){
+
+                list += "<li>"+ '<span style="color:' + arr[i].color + '">;</span>' + arr[i].name + " " + arr[i].count+ "</li>"
+
+            }else{
+
+                list += "<li>"+ '<span style="color:' + arr[i].color + '">&#9776;</span>' + arr[i].name + " " + arr[i].count + "</li>"
+            }
+            }
+            $('#list').html(list);
+        });
+        </script>
+</body>
+
+</html>

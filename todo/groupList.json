@@ -5,21 +5,49 @@
             "name":"오늘 할 일", 
             "color": "blue", 
             "icon": "sun", 
-            "count":0
+            "count": 1
         },
         {
             "id":2, 
             "name":"To-Do", 
-            "color": "blue", 
+            "color": "orange", 
             "icon": "home", 
+            "count":3
+        },
+        {
+            "id":3, 
+            "name":"할 일 목록 1", 
+            "color":"violet", 
+            "icon": "list", 
+            "count":5
+        },
+        {
+            "id":3, 
+            "name":"할 일 목록 2", 
+            "color":"green", 
+            "icon": "list", 
+            "count":1
+        },
+        {
+            "id":3, 
+            "name":"할 일 목록 3", 
+            "color":"blue", 
+            "icon": "list", 
             "count":0
         },
         {
             "id":3, 
-            "name":"", 
-            "color":"blue", 
+            "name":"할 일 목록 4", 
+            "color":"skyblue", 
             "icon": "list", 
-            "count":0
+            "count":8
+        },
+        {
+            "id":3, 
+            "name":"할 일 목록 5", 
+            "color":"green", 
+            "icon": "list", 
+            "count":2
         }
     ]
     
