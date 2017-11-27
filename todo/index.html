@@ -8,64 +8,141 @@
     ul{list-style:none}
 </style>
             
-<ul id = "list">
+<ul id = "list"></ul>
+<ul id = "tasklist"></ul>
 
-</ul>
 
 <input type="button" id = "button" value="+ 새 목록">
     
         <script
-        src = "http://code.jquery.com/jquery-3.2.1.min.js"
+        src = "https://code.jquery.com/jquery-3.2.1.min.js"
         integrity = "sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
         crossorigin="anonymous"></script>
 
 
         <script>
-        
-        $.get("https://Gomgom1.github.io/todo/groupList.json",function(result, status){
+       
 
+        $.get("https://Gomgom1.github.io/todo/groupList.json", function(result, status){
+            var arr;
+            var list = "";
             console.log(result.data[0]);
 
-            var arr = result.data;
-            var list = "";
+            arr = result.data;
 
-            for(var i = 0; i<arr.length; i++){
 
-                if (arr[i].icon=="home"){
-                list += "<li>"+ '<span style="color:' + arr[i].color + '">&#9750;</span>' + arr[i].name + " " + arr[i].count + "</li>"
-            }else if(arr[i].icon=="sun"){
+        var print_out = function(ar, list){
 
-                list += "<li>"+ '<span style="color:' + arr[i].color + '">&#9788;</span>' + arr[i].name + " " + arr[i].count+ "</li>"
+            if(ar == null) return;
+            list = ""
+
+            for(var i = 0; i<ar.length; i++){
+
+                if (ar[i].icon=="home"){
+                list += '<li class = "taskcall">'+ '<span style="color:' + ar[i].color + '">&#9750;</span>' + ar[i].name + " " + ar[i].count + "</li>"
+            }else if(ar[i].icon=="sun"){
+
+                list += '<li class = "taskcall">'+ '<span style="color:' + ar[i].color + '">&#9788;</span>' + ar[i].name + " " + ar[i].count+ "</li>"
 
             }else{
 
-                list += "<li>"+ '<span style="color:' + arr[i].color + '">&#9776;</span>' + arr[i].name + " " + arr[i].count + "</li>"
+                list += '<li class = "taskcall">'+ '<span style="color:' + ar[i].color + '">&#9776;</span>' + ar[i].name + " " + ar[i].count + "</li>"
             }
             }
             $('#list').html(list);
+
+        }
+
+
+        var print_out2 = function(ar, list, name){
+
+            if(ar == null) return;
+            list = ""
+
+            for(var i = 0; i<ar.length; i++){
+                if (arr[i].list == name){
+                if (arr[i].check == true){
+                list += "<li>" + '&#9745;' + " " + ar[i].name + "</li>" 
+            }else{
+
+                list += "<li>" + '&#9744;' + " " + ar[i].name + "</li>"
+            }
+                }
+                else{
+                    continue;
+                }
+            }
+            $('#tasklist').html(list);
+
+        }
+
+
+
+       
+
+        var add = function(){
             $('#button').click(function(){
                 var a, b;
                 b = '제목 없는 목록';
                 a = prompt('새 목록', b)
                 
-                $.post("https://Gomgom1.github.io/todo/groupList.json",
-                 { 
+                /* $.post("https://Gomgom1.github.io/todo/groupList.json",
+                arr + { 
             "id": arr.length, 
             "name": a , 
             "color": "blue", 
             "icon": "list", 
             "count": 0
             },
-             function(data) {
+            function(data) {
+
+                 arr =  arr + { 
+            "id": arr.length, 
+            "name": a , 
+            "color": "blue", 
+            "icon": "list", 
+            "count": 0
+            }
+                 list = "" 
+
+            print_out(arr, list);
             
-            
-            
+        }
+        */
+
+        arr[arr.length] = { 
+            "id": arr.length, 
+            "name": a , 
+            "color": "blue", 
+            "icon": "list", 
+            "count": 0
+            }
+        list = ""
+
+        print_out(arr, list);
+
+
             });
+        
+        }
 
-           
-        });
+        
+        print_out(arr, list);
+        add();
 
-        });
+        taskclick = function(){
+             $('.taskcall').click(function(){
+                $.get("https://Gomgom1.github.io/todo/taskList.json", function(result, status){
+                    tasklist = ""
+                    print_out2(result.data, tasklist, li[i].name);
+                 });
+                });
+        }
+
+        taskclick();
+
+
+    });
         
         </script>
 </body>
