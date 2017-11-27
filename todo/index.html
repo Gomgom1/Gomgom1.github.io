@@ -39,14 +39,14 @@
             for(var i = 0; i<ar.length; i++){
 
                 if (ar[i].icon=="home"){
-                list += '<li class = "taskcall">'+ '<span style="color:' + ar[i].color + '">&#9750;</span>' + ar[i].name + " " + ar[i].count + "</li>"
+                list += '<li>'+ '<a href="javascript:void(0);" onclick="taskclick(this.name);" attr-a="onclick : attr-a">' + '<span style="color:' + ar[i].color + '">&#9750;</span>' + ar[i].name + " " + ar[i].count + '</a>' + '</li>'
             }else if(ar[i].icon=="sun"){
 
-                list += '<li class = "taskcall">'+ '<span style="color:' + ar[i].color + '">&#9788;</span>' + ar[i].name + " " + ar[i].count+ "</li>"
+                list += '<li>'+ '<a href="javascript:void(0);" onclick="taskclick(this.name);" attr-a="onclick : attr-a">' + '<span style="color:' + ar[i].color + '">&#9788;</span>' + ar[i].name + " " + ar[i].count+ "</li>"
 
             }else{
 
-                list += '<li class = "taskcall">'+ '<span style="color:' + ar[i].color + '">&#9776;</span>' + ar[i].name + " " + ar[i].count + "</li>"
+                list += '<li>'+ '<a href="javascript:void(0);" onclick="taskclick(this.name);" attr-a="onclick : attr-a">' + '<span style="color:' + ar[i].color + '">&#9776;</span>' + ar[i].name + " " + ar[i].count + "</li>"
             }
             }
             $('#list').html(list);
@@ -56,7 +56,6 @@
 
         var print_out2 = function(ar, list, name){
 
-            if(ar == null) return;
             list = ""
 
             for(var i = 0; i<ar.length; i++){
@@ -130,16 +129,15 @@
         print_out(arr, list);
         add();
 
-        taskclick = function(){
-             $('.taskcall').click(function(){
+        taskclick = function(name){
+            
                 $.get("https://Gomgom1.github.io/todo/taskList.json", function(result, status){
                     tasklist = ""
-                    print_out2(result.data, tasklist, li[i].name);
-                 });
-                });
-        }
+                    print_out2(result.data, tasklist, name);
 
-        taskclick();
+                 });
+              
+        }
 
 
     });
